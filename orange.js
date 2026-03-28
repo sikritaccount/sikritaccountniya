@@ -10,6 +10,13 @@ function goToPage(pageNumber) {
     currentPage = pageNumber;
   }
 
+  const music = document.getElementById("bgMusic");
+  if (music && music.paused) {
+    music.play().catch(error => {
+      console.log("Music play blocked:", error);
+    });
+  }
+
   if (pageNumber === 5) {
     setInitialNoButtonPosition();
   }
